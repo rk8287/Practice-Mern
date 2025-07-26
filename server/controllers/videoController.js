@@ -1,5 +1,7 @@
 const Video = require("../models/videoSchem");
 
+
+//create video
 exports.createVideo = async (req, res) => {
   try {
     const { title, description } = req.body;
@@ -17,7 +19,7 @@ exports.createVideo = async (req, res) => {
       videoUrl: `/uploads/${videoFile.filename}`,
       thumbnail: `/uploads/${thumbnailFile.filename}`,
       channel: {
-        id: req.user?.id || null,  // safe optional chaining
+        id: req.user?.id || null, 
         name: req.user?.name || "Guest",
         avatar: req.user?.avatar || "https://i.pravatar.cc/150",
       },
@@ -29,3 +31,22 @@ exports.createVideo = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+//Get all Videos
+
+exports.getVideos = async (req,res) =>{
+
+  const videos = await Video.find().sort({createdAt: -1});
+  res.json(videos);
+
+}
+
+//Get getVideoById 
+
+exports.getVideoById = async (req,res) =>{
+
+  const video = await Video.findById(req.params.id);
+
+  if(!video) return res.status(400).json({ msg: "Video not found" });
+  res.json(video);
+}
