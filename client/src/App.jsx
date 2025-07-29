@@ -1,14 +1,28 @@
-import { useState } from 'react'
-import './App.css'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
+import "./App.css";
+import Home from "./components/Home";
+import Login from "./pages/Login";
+import Header from "./pages/Header";
+import Pricing from "./pages/Pricing";
 
 function App() {
-  
-
   return (
-   <div>
-    <h1>Practice MERN</h1>
-   </div>
-  )
+    <>
+      <Router>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/price" element={<Pricing />} />
+        </Routes>
+      </Router>
+    </>
+  );
 }
 
-export default App
+export default App;
