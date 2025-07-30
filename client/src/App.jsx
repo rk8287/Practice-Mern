@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import Login from "./pages/Login";
 import Header from "./pages/Header";
 import Pricing from "./pages/Pricing";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/price" element={<Pricing />} />
         </Routes>
       </Router>

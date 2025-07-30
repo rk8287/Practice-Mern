@@ -9,7 +9,7 @@ const Home = () => {
     <>
     
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Background Video */}
+    
       <video
         autoPlay
         loop
@@ -20,7 +20,7 @@ const Home = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Overlay with Text */}
+   
       <div className="absolute top-0 left-0 w-full h-full flex justify-end items-center px-12 z-10">
         <motion.div
           initial={{ x: 100, opacity: 0 }}
